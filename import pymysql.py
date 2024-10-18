@@ -1,31 +1,25 @@
 import pymysql
-from pymysql import MySQLError
+import time
+import random
 
-try:
-    conexion = pymysql.connect(
-        host='localhost', 
-        user='usuario', 
-        passwd='usuario', 
-        database='1dam')
+start_time = time.time()
+end_time = time.time()
+
+conexion = pymysql.connect(host ="localhost", user ="usuario", password ="usuario", database ="1dam")
+cursor = conexion.cursor()
+
+with conexion.cursor() as cursor:
     
-    cursor = conexion.cursor()
-
-    sql_crear_proveedores = """
-
-    CREATE TABLE IF NOT EXISTS Proveedores (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    direccion VARCHAR(100)
-    )
-    """
-    cursor.execute(sql_crear_proveedores)
-# Añadir la columna 'proveedor_id' a la tabla Herramientas
-    sql_alter_herramientas = """
-    ALTER TABLE Herramientas ADD proveedor_id INT,
-    ADD CONSTRAINT fk_proveedor
-    FOREIGN KEY (proveedor_id) REFERENCES Proveedores(id)
-    """
-    cursor.execute(sql_alter_herramientas)
-    print("Relación entre Herramientas y Proveedores creada.")
-except MySQLError as e:
-    print("Error de conexion: {e}")
+    autor = {'Garcilaso de la Vega', 'Stephen King', 'Antonio Escohotado', 'Miguel de la Fuente' }
+    tamaño_archivo = {'>1GB', '>10GB', '500MB', '300MB'}
+    formato = {'PDF', 'EPUB', 'AZW', 'MOBI'}
+    editorial = {'Édebe', 'Aliance', 'Universe', 'Sintesis'}
+    titulo = f"Libro {i+1}"
+    
+    for i in range(10000):
+        autor = random.choice(autor)
+        tamaño_archivo = random.choice(tamaño_archivo)
+        formato = random.choice(formato)
+        editorial = random.choice(editorial)
+        titulo = random.choice(titulo)
+        

@@ -11,7 +11,6 @@ try:
     cursor = conexion.cursor()
 
     sql_crear_proveedores = """
-
     CREATE TABLE IF NOT EXISTS Proveedores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
