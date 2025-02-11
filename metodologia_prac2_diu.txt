@@ -1,0 +1,22 @@
+EXAMEN
+
+- Objetos en memoria
+
+- Axios con métodos típicos montados
+
+
+PROYECTO
+
+3 de marzo
+
+- Microservicio Agenda Persona
+
+- Añadir campo al Tutorials
+
+- Probar microservicios
+
+- Front-End
+
+
+
+
